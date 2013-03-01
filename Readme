@@ -1,0 +1,8 @@
+dot file list
+
+bashrc		- my bash shell setting.
+indent.pro	- my indent setting, used in vim to indent C program.
+screenrc	- abandoned, terminal multiplexor setting(replace by tmux)
+tmux.conf	- terminal multiplexor setting.
+vim		- vim
+vimrc		- vimrc
