@@ -102,6 +102,8 @@ set hlsearch			"highlight search result
 highlight Search term=reverse ctermbg=4 ctermfg=7
 set background=light
 highlight Normal ctermbg=black ctermfg=white
+highlight Pmenu ctermbg=5 ctermfg=white
+highlight PmenuSel ctermbg=6 ctermfg=white
 set ttyfast			" we have a fast terminal
 set lazyredraw			" Do not redaw while running macros (faster)
 set autoindent
