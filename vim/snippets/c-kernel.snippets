@@ -1,0 +1,37 @@
+# Module
+snippet	mod
+	module_init(${1:module_init});
+	module_exit(${2:module_exit});
+snippet minfo
+	MODULE_AUTHOR("${3:Han-Pei Lin}");
+	MODULE_LICENSE(${4:"GPL"});
+	MODULE_VERSION(${5:VERSION});
+	MODULE_DESCRIPTION("${6:/*Module Description*/}");
+# Module init
+snippet init
+	static int __init ${1:init_module}(void)
+	{
+		${2:/* code */}
+		return 0;
+	}
+# Module exit
+snippet exit
+	static void __exit ${1:exit_module}(void)
+	{
+		${2:/* code */}
+	}
+# EXPORT_SYMBOL
+snippet	exp
+	EXPORT_SYMBOL(${1:SYMBOL});
+# print kernel info
+snippet pk
+	printk("${1:%s}\n"${2});${3}
+# print kernel info
+snippet pki
+	printk(KERN_INFO "${1:%s}\n"${2});${3}
+# print kernel info
+snippet pkd
+	printk(KERN_DEBUG "${1:%s}\n"${2});${3}
+# prink FILE, FUNCTION, LINE
+snippet pi
+	printk("${1:%s %s %d}\n"${2:, __FILE__, __FUNCTION__, __LINE__});${3}

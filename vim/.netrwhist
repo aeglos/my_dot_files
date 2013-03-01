@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/aeglos/vcs-home/python-oauth2.git/oauth2/clients'
+let g:netrw_dirhist_2='/home/aeglos/vcs-home/python-oauth2.git/oauth2'
+let g:netrw_dirhist_3='/home/aeglos/download/p'
+let g:netrw_dirhist_4='/home/aeglos/compal'
+let g:netrw_dirhist_5='/usr/share/doc/git-core'
+let g:netrw_dirhist_6='/home/aeglos/.webcamd'
+let g:netrw_dirhist_7='/home/aeglos/.mutt'

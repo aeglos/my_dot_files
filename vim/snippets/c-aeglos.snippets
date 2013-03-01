@@ -1,0 +1,46 @@
+snippet	swi
+	switch (${1:Variable}) {
+	case '${2:case1}':
+		${3:/* case $2 */}
+		break;
+	default:
+		${4:/* default case */}
+		break
+	}
+snippet //
+	/* ${1:Single Comment} */${2}
+snippet /*
+	/*
+	 * ${1:Comments here}
+	 *
+	 */${2}
+# Debug
+snippet ddb
+	#ifdef DEBUG
+	#undef PDEBUG
+	#   ifdef __KERNEL__
+	    /* debuging in kernel mode */
+	#	define PDEBUG(format, args...) do { \
+		    printk ("%s %s(%d) ${1:%s}:${2:Error Here!}\n",\
+		    __FILE__, __FUNCTION__, __LINE__${3:,"more?"});\
+		    } while (0)
+	#   else
+	    /* debuging in user mode */
+	#	define PDEBUG do { \
+		    printf ("%s %s(%d) ${4:$1}:${5:$2}",\
+		    __FILE__, __FUNCTION__, __LINE__${6:$3});\
+		} while (0)
+	#   endif
+	#else
+	#undef PDEBUG
+	#define PDEBUG(format, args...) do {} while (0)
+	#endif ${7}
+
+snippet pd
+	PDEBUG;
+
+snippet mem
+	memset(${1:Target}, ${3:0}, sizeof(${2:$1}));${4}
+
+snippet sp
+	sprintf(${1:cmd},"${2:%s}", ${3:str});
