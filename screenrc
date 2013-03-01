@@ -1,0 +1,27 @@
+defscrollback 5000
+startup_message off
+#caption always "%{= kw}%-w%<%{=B BW} %n %t %{-}%+w %=%{..G} %H(%l) %{..Y} %Y/%m/%d %c:%s"
+caption always "%{= kw}%-w%<%{=B BW} %n %t %{-}%+w %=%{..G} %H %{..Y} %Y/%m/%d %c:%s"
+
+screen -t irssi	    0
+screen -t git	    1
+screen -t redmine   2
+
+#escape ^aa # default
+#escape ^Oo
+#bindkey -k k5 prev
+#bindkey -k k6 next
+
+#按tab閃爍
+vbell off
+
+altscreen on # Refresh the display when exiting programs like vim, nano, irssi and etc.
+defutf8 on
+defc1 off # treat input chars 128 ~ 159 as control functions
+defflow on
+vbell_msg "Ding Ding!!"
+defencoding utf8
+# cjkwidth on
+
+# erase background with current bg color
+defbce on
