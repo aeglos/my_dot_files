@@ -447,6 +447,7 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/CCTree'
+Bundle 'vim-scripts/cscope.vim'
 
 filetype plugin indent on    " required!
 
