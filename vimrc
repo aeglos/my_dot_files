@@ -66,13 +66,32 @@ if has("cscope")
     set csverb
     set cscopetag
     set cscopequickfix=s-,g-,c-,d-,t-,e-,f-,i-
+
+    " s: Find this C symbol
+    map <localleader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+    " g: Find this definition
+    map <localleader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+    " d: Find functions called by this function
+    map <localleader>fd :call CscopeFind('d', expand('<cword>'))<CR>
+    " c: Find functions calling this function
+    map <localleader>fc :call CscopeFind('c', expand('<cword>'))<CR>
+    " t: Find this text string
+    map <localleader>ft :call CscopeFind('t', expand('<cword>'))<CR>
+    " e: Find this egrep pattern
+    map <localleader>fe :call CscopeFind('e', expand('<cword>'))<CR>
+    " f: Find this file
+    map <localleader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+    " i: Find files #including this file
+    map <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
+    map <localleader>fl :call ToggleLocationList()<CR>
+
 endif
 
 "C-\ - Open the definition in a new tab
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <C-]> :exec("tag ".expand("<cword>"))<CR>
+"map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+"map <C-]> :exec("tag ".expand("<cword>"))<CR>
 "A-] - Open the definition in a vertical split
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+"map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Remove 'recording' key mapping
 nmap q <Cr>
