@@ -408,10 +408,10 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_WinWidth = 40
-"map <F12> :TlistToggle<cr>
+map <F12> :TlistToggle<cr>
 
 " Tagbar
-map <F12> :TagbarToggle<cr>
+"map <F12> :TagbarToggle<cr>
 
 " ACP "
 let g:acp_completeOption = '.,w,b,u,t,i,k'
@@ -471,3 +471,36 @@ endif
 if !hasmapto("<plug>EgMapReplaceSelection_R")
     vmap <silent> <localleader>vR <plug>EgMapReplaceSelection_R
 endif
+
+" Add to make Vundle work
+set nocompatible    " be iMproved
+filetype off        " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+Bundle 'rking/ag.vim'
+Bundle 'kien/ctrlp.vim'
+filetype plugin indent on    " required!
+
+" Ag
+nmap <localleader>a :Ag<CR>
+
+"CCTree
+set updatetime=0
+let g:CCTreeCscopeDb = "cscope.out"
+
+"CtrlP
+"noremap :CtrlPMRU
+"nnoremap <localleader>p :CtrlPMRU<CR>
+let g:ctrlp_map = '<localleader>p'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
