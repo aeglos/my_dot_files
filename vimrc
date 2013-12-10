@@ -486,6 +486,7 @@ Bundle 'rking/ag.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/AutoComplPop'
 
 filetype plugin indent on    " required!
 
