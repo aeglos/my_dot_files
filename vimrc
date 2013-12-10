@@ -24,8 +24,6 @@ hi clear SpellBad
 hi SpellBad term=underline cterm=underline ctermfg=red
 hi SpellErrors ctermfg=Red guifg=Red cterm=underline gui=underline term=reverse
 
-map <F4> :NERDTreeToggle<cr>
-
 " switch between big5 & utf8
 map <F5> :set tenc=big5<cr>
 map <F6> :set tenc=utf-8<cr>
@@ -448,6 +446,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/CCTree'
 Bundle 'vim-scripts/cscope.vim'
+Bundle 'vim-scripts/QuickBuf'
 
 filetype plugin indent on    " required!
 
@@ -469,3 +468,6 @@ let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
+
+" QuickBuf
+let g:qb_hotkey = "<localleader>b"
