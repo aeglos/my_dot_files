@@ -446,6 +446,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/AutoComplPop'
+Bundle 'vim-scripts/CCTree'
 
 filetype plugin indent on    " required!
 
