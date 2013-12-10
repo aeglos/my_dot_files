@@ -431,47 +431,6 @@ let g:acp_completeOption = '.,w,b,u,t,i,k'
 "nmap <script> <silent> <unique> <localleader>bs :BufExplorerHorizontalSplit<CR>
 "nmap <script> <silent> <unique> <localleader>bv :BufExplorerVerticalSplit<CR>
 
-" EasyGrep "
-if !hasmapto("<plug>EgMapGrepOptions")
-    map <silent> <localleader>vo <plug>EgMapGrepOptions
-endif
-if !hasmapto("<plug>EgMapGrepCurrentWord_v")
-    map <silent> <localleader>vv <plug>EgMapGrepCurrentWord_v
-endif
-if !hasmapto("<plug>EgMapGrepSelection_v")
-    vmap <silent> <localleader>vv <plug>EgMapGrepSelection_v
-endif
-if !hasmapto("<plug>EgMapGrepCurrentWord_V")
-    map <silent> <localleader>vV <plug>EgMapGrepCurrentWord_V
-endif
-if !hasmapto("<plug>EgMapGrepSelection_V")
-    vmap <silent> <localleader>vV <plug>EgMapGrepSelection_V
-endif
-if !hasmapto("<plug>EgMapGrepCurrentWord_a")
-    map <silent> <localleader>va <plug>EgMapGrepCurrentWord_a
-endif
-if !hasmapto("<plug>EgMapGrepSelection_a")
-    vmap <silent> <localleader>va <plug>EgMapGrepSelection_a
-endif
-if !hasmapto("<plug>EgMapGrepCurrentWord_A")
-    map <silent> <localleader>vA <plug>EgMapGrepCurrentWord_A
-endif
-if !hasmapto("<plug>EgMapGrepSelection_A")
-    vmap <silent> <localleader>vA <plug>EgMapGrepSelection_A
-endif
-if !hasmapto("<plug>EgMapReplaceCurrentWord_r")
-    map <silent> <localleader>vr <plug>EgMapReplaceCurrentWord_r
-endif
-if !hasmapto("<plug>EgMapReplaceSelection_r")
-    vmap <silent> <localleader>vr <plug>EgMapReplaceSelection_r
-endif
-if !hasmapto("<plug>EgMapReplaceCurrentWord_R")
-    map <silent> <localleader>vR <plug>EgMapReplaceCurrentWord_R
-endif
-if !hasmapto("<plug>EgMapReplaceSelection_R")
-    vmap <silent> <localleader>vR <plug>EgMapReplaceSelection_R
-endif
-
 " Add to make Vundle work
 set nocompatible    " be iMproved
 filetype off        " required!
