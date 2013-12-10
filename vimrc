@@ -408,10 +408,10 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_WinWidth = 40
-map <F12> :TlistToggle<cr>
+"map <F12> :TlistToggle<cr>
 
 " Tagbar
-"map <F12> :TagbarToggle<cr>
+map <F12> :TagbarToggle<cr>
 
 " ACP "
 let g:acp_completeOption = '.,w,b,u,t,i,k'
