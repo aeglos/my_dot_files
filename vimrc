@@ -484,6 +484,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'rking/ag.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'majutsushi/tagbar'
+
 filetype plugin indent on    " required!
 
 " Ag
