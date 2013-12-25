@@ -68,21 +68,29 @@ if has("cscope")
     set cscopequickfix=s-,g-,c-,d-,t-,e-,f-,i-
 
     " s: Find this C symbol
-    map <localleader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+    " map <localleader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+    map <localleader>fs :cs f s <cword><CR>
     " g: Find this definition
-    map <localleader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+    " map <localleader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+    map <localleader>fg :cs f g <cword><CR>
     " d: Find functions called by this function
-    map <localleader>fd :call CscopeFind('d', expand('<cword>'))<CR>
+    " map <localleader>fd :call CscopeFind('d', expand('<cword>'))<CR>
+    map <localleader>fd :cs f d <cword><CR>
     " c: Find functions calling this function
-    map <localleader>fc :call CscopeFind('c', expand('<cword>'))<CR>
+    " map <localleader>fc :call CscopeFind('c', expand('<cword>'))<CR>
+    map <localleader>fc :cs f c <cword><CR>
     " t: Find this text string
-    map <localleader>ft :call CscopeFind('t', expand('<cword>'))<CR>
+    " map <localleader>ft :call CscopeFind('t', expand('<cword>'))<CR>
+    map <localleader>ft :cs f t <cword><CR>
     " e: Find this egrep pattern
-    map <localleader>fe :call CscopeFind('e', expand('<cword>'))<CR>
+    " map <localleader>fe :call CscopeFind('e', expand('<cword>'))<CR>
+    map <localleader>fe :cs f e <cword><CR>
     " f: Find this file
-    map <localleader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+    " map <localleader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+    map <localleader>ff :cs f f <cword><CR>
     " i: Find files #including this file
-    map <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
+    " map <localleader>fi :call CscopeFind('i', expand('<cword>'))<CR>
+    map <localleader>fi :cs f i <cword><CR>
     map <localleader>fl :call ToggleLocationList()<CR>
 
 endif
