@@ -44,3 +44,6 @@ snippet mem
 
 snippet sp
 	sprintf(${1:cmd},"${2:%s}", ${3:str});
+
+snippet pfd
+	printf("${1:%s %s %d}\n"${2:, __FILE__, __FUNCTION__, __LINE__});${3}

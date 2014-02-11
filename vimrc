@@ -484,6 +484,7 @@ Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/CCTree'
 Bundle 'vim-scripts/cscope.vim'
 Bundle 'vim-scripts/QuickBuf'
+Bundle 'sjl/gundo.vim'
 
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -501,8 +502,8 @@ let g:CCTreeCscopeDb = "cscope.out"
 
 "CtrlP
 "noremap :CtrlPMRU
-"nnoremap <localleader>p :CtrlPMRU<CR>
-let g:ctrlp_map = '<localleader>p'
+nnoremap <F4> :CtrlPMRU<CR>
+let g:ctrlp_map = '<localleader>z'
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_match_window_bottom=1
@@ -513,3 +514,7 @@ let g:ctrlp_follow_symlinks=1
 
 " QuickBuf
 let g:qb_hotkey = "<localleader>b"
+
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
+nnoremap <localleader>g :GundoToggle<CR>
