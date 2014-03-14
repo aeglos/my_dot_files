@@ -499,6 +499,9 @@ nmap <localleader>a :Ag<CR>
 "CCTree
 set updatetime=0
 let g:CCTreeCscopeDb = "cscope.out"
+nnoremap <localleader>t :CCTreeLoadDB<CR><CR>
+let g:CCTreeKeyTraceForwardTree = '<localleader>>'
+let g:CCTreeKeyTraceReverseTree = '<localleader><'
 
 "CtrlP
 "noremap :CtrlPMRU
