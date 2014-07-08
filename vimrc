@@ -258,6 +258,7 @@ nmap <localleader>w <C-W><C-W>
 
 "show underline in current line
 map <localleader>l :set cursorline!<CR><Bar>:echo "Highlight active cursor line: " . strpart("OffOn", 3 * &cursorline, 3)<CR>
+hi CursorLine cterm=NONE ctermbg=lightgrey ctermfg=black
 
 "Compile
 nmap <localleader>n :cn<CR>
@@ -484,6 +485,7 @@ Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/CCTree'
 Bundle 'vim-scripts/cscope.vim'
 Bundle 'vim-scripts/QuickBuf'
+Bundle 'vim-scripts/Conque-GDB'
 Bundle 'sjl/gundo.vim'
 
 if iCanHazVundle == 0
