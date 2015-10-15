@@ -82,6 +82,7 @@ alias ll='ls -lh'
 #alias la='ls -A'
 #alias l='ls -CF'
 alias vi='vim'
+alias minicom='minicom --color=on'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -119,12 +120,26 @@ export LESS_TERMCAP_so=$'\E[0;44;33m' # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'		 # end underline
 export LESS_TERMCAP_us=$'\E[0;33m'   # begin underline
 
-export PATH="$PATH:$HOME/bin/"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$HOME/bin/:$GOPATH/bin/"
 
 # make tty1 Eng UI
 if [ "$(tty)" = "/dev/tty1" ]; then
     LANG="en_US.UTF-8"
 fi
+
+#. /usr/share/autojump/autojump.sh
+eval "$(fasd --init auto)"
+alias a='fasd -a'        # any
+alias s='fasd -si'       # show / search / select
+alias d='fasd -d'        # directory
+alias f='fasd -f'        # file
+alias sd='fasd -sid'     # interactive directory selection
+alias sf='fasd -sif'     # interactive file selection
+alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+alias j='fasd_cd -d'     # cd, same functionality as j in autojump
+alias zz='fasd_cd -d -i' # cd with interactive selection
+alias v='f -t -e vim -b viminfo'
 
 # ls when cd, it's useful
 function cd () {

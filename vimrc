@@ -32,6 +32,11 @@ map <F6> :set tenc=utf-8<cr>
 map <F10> :set paste!<bar>set paste?<CR>
 set pastetoggle=<F10>
 
+" list <tab> & <space>
+set listchars=eol:↵,tab:»‧,trail:╳,extends:»,precedes:«
+map <F11> :set list!<bar>set list?<CR>
+set pastetoggle=<F11>
+
 " 調整水平分割視窗大小
 nmap + <C-W>+
 nmap - <C-W>-
@@ -49,6 +54,7 @@ map <MouseMiddle> <esc>"*p
 
 "theme
 "colorscheme killor
+colorscheme yzlin256
 
 "ctrl + ] analyze by cscope
 if has("cscope")
@@ -118,7 +124,26 @@ set wildignore+=*.o,*.a,*.so,*.obj,*.exe,*.lib,*.ncb,*.opt,*.plg,.svn,.git,*.swp
 set confirm			"confirm when conflict
 "set mouse=nv "enable mouse to change window size
 set laststatus=2		"status bar
-set statusline=%<%f\ %m%=\ %h%r\ %-19([%p%%]\ %3l,%02c%03V%)%y
+"set statusline=%<%f\ %m%=\ %h%r\ %-19([%p%%]\ %3l,%02c%03V%)%y
+set statusline =
+" Buffer number
+set statusline +=[%n]
+" File description
+set statusline +=%f\ %h%m%r%w
+" Filetype
+set statusline +=%y
+" Name of the current function (needs tagbar.vim)
+"if &filetype == 'c'
+set statusline +=\ %{tagbar#currenttag('%s','')}
+
+" Name of the current branch (needs fugitive.vim)
+"set statusline +=\ %{fugitive#statusline()}
+" Date of the last time the file was saved
+"set statusline +=\ %{strftime(\"[%d/%m/%y\ %T]\",getftime(expand(\"%:p\")))}
+" Total number of lines in the file
+set statusline +=%=%-10L
+" Line, column and percentage
+set statusline +=%=%-14.(%l,%c%V%)\ %P
 "set statusline=File:\ %t\%r%h%w\ [%{&ff},%{&fileencoding},%Y]\ %m%=\ [AscII=\%03.3b]\ [Hex=\%02.2B]\ [Pos=%l,%v,%p%%]\ [LINE=%L]
 highlight StatusLine ctermfg=blue ctermbg=white
 ":highlight 可以看到所有的顏色
@@ -149,7 +174,7 @@ set nofen			"disable fold
 
 " {{{ UTF-8 Big5 Setting
 " 以下四個設下去. vim 編出來都是 utf-8 編碼的.
-set fileencodings=big5,utf-8,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
+"set fileencodings=big5,utf-8,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
 
 " 檔案存檔會存成utf-8編碼
 set termencoding=utf-8
@@ -169,7 +194,7 @@ if has("autocmd")
     \ endif
 endif
 
-"set t_Co=256			"set 256 colors
+set t_Co=256			"set 256 colors
 set backspace=2			"allow backspace delete any char
 set ruler			"show current position
 set showmatch			"show matching brackets when typing
@@ -186,6 +211,12 @@ set cinwords=if,else,while,do,for,switch,case
 set formatoptions=tcqr
 set showcmd             " Show (partial) command in status line.
 set autowrite           " Automatically save before commands like :next and :make
+
+" - move one line down and up.
+" nmap <A-j> :.m.+1<CR>
+nmap <A-up> :.m.-2<CR>
+" nmap <A-k> :.m.-2 <CR>
+nmap <A-down> :.m.+1<CR>
 
 "For Python
 "let python_highlight_builtins = 1
@@ -316,9 +347,6 @@ map <localleader>r : call RemoveTrailingWhitespace()<cr>
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
-"let g:pydiction_location=$HOME.'/.vim/ftplugin/pydiction/complete-dict'
-
 "auto add python path & utf-8 to *.py
 function PyHeader()
     if getfsize(@%) <= 0
@@ -441,16 +469,6 @@ map <F12> :TagbarToggle<cr>
 
 " ACP "
 let g:acp_completeOption = '.,w,b,u,t,i,k'
-"let g:acp_behaviorSnipmateLength = 1
-
-"fun! GetSnipsInCurrentScope()
-"    let snips = {}
-"    for scope in [bufnr('%')] + split(&ft, '\.') + ['_']
-"      call extend(snips, get(s:snippets, scope, {}), 'keep')
-"      call extend(snips, get(s:multi_snips, scope, {}), 'keep')
-"    endfor
-"    return snips
-"  endf
 
 "BufExplorer
 "nmap <script> <silent> <unique> <localleader>be :BufExplorer<CR>
@@ -481,12 +499,18 @@ Bundle 'rking/ag.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/AutoComplPop'
+"Bundle 'vim-scripts/AutoComplPop'
+Bundle 'vim-scripts/L9'
+Bundle 'othree/vim-autocomplpop'
 Bundle 'vim-scripts/CCTree'
 Bundle 'vim-scripts/cscope.vim'
 Bundle 'vim-scripts/QuickBuf'
 Bundle 'vim-scripts/Conque-GDB'
-Bundle 'sjl/gundo.vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+"Bundle 'honza/vim-snippets'
+Bundle 'guns/xterm-color-table.vim'
 
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -504,13 +528,18 @@ let g:CCTreeCscopeDb = "cscope.out"
 nnoremap <localleader>t :CCTreeLoadDB<CR><CR>
 let g:CCTreeKeyTraceForwardTree = '<localleader>>'
 let g:CCTreeKeyTraceReverseTree = '<localleader><'
+let g:CCTreeRecursiveDepth = 5
 
 "CtrlP
 "noremap :CtrlPMRU
 nnoremap <F4> :CtrlPMRU<CR>
 let g:ctrlp_map = '<localleader>z'
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
-let g:ctrlp_working_path_mode=0
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg)$',
+      \ 'file': '\v\.(exe|so|dll|out|files|o|ko|po)$',
+      \ 'link': 'some_bad_symbolic_links',
+      \ }
+let g:ctrlp_working_path_mode=''
 let g:ctrlp_match_window_bottom=1
 let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
@@ -520,6 +549,6 @@ let g:ctrlp_follow_symlinks=1
 " QuickBuf
 let g:qb_hotkey = "<localleader>b"
 
-" Gundo
-nnoremap <F5> :GundoToggle<CR>
-nnoremap <localleader>g :GundoToggle<CR>
+let snippets_dir = '~/.vim/bundle/vim-snippets/snippets/'
+let g:acp_behaviorSnipmateLength = 1
+

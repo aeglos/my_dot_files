@@ -22,13 +22,13 @@ snippet ddb
 	    /* debuging in kernel mode */
 	#	define PDEBUG(format, args...) do { \
 		    printk ("%s %s(%d) ${1:%s}:${2:Error Here!}\n",\
-		    __FILE__, __FUNCTION__, __LINE__${3:,"more?"});\
+		    __FILE__, __func__, __LINE__${3:,"more?"});\
 		    } while (0)
 	#   else
 	    /* debuging in user mode */
 	#	define PDEBUG do { \
 		    printf ("%s %s(%d) ${4:$1}:${5:$2}",\
-		    __FILE__, __FUNCTION__, __LINE__${6:$3});\
+		    __FILE__, __func__, __LINE__${6:$3});\
 		} while (0)
 	#   endif
 	#else
@@ -46,4 +46,4 @@ snippet sp
 	sprintf(${1:cmd},"${2:%s}", ${3:str});
 
 snippet pfd
-	printf("${1:%s %s %d}\n"${2:, __FILE__, __FUNCTION__, __LINE__});${3}
+	printf("${1:%s %s %d}\n"${2:, __FILE__, __func__, __LINE__});${3}
