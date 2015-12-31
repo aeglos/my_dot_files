@@ -83,6 +83,7 @@ alias ll='ls -lh'
 #alias l='ls -CF'
 alias vi='vim'
 alias minicom='minicom --color=on'
+alias fn='find . -name'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
