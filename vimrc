@@ -25,7 +25,7 @@ hi SpellBad term=underline cterm=underline ctermfg=red
 hi SpellErrors ctermfg=Red guifg=Red cterm=underline gui=underline term=reverse
 
 " switch between big5 & utf8
-map <F5> :set tenc=big5<cr>
+"map <F5> :set tenc=big5<cr>
 map <F6> :set tenc=utf-8<cr>
 
 " if set paste is on, snipMate do not work
@@ -53,8 +53,11 @@ nnoremap <C-p> :bprevious<CR>
 map <MouseMiddle> <esc>"*p
 
 "theme
-"colorscheme killor
-colorscheme yzlin256
+syntax enable
+set background=dark
+"colorscheme solarized
+"let g:solarized_termcolors=256
+colorscheme SlateDark
 
 "ctrl + ] analyze by cscope
 if has("cscope")
@@ -145,15 +148,16 @@ set statusline +=%=%-10L
 " Line, column and percentage
 set statusline +=%=%-14.(%l,%c%V%)\ %P
 "set statusline=File:\ %t\%r%h%w\ [%{&ff},%{&fileencoding},%Y]\ %m%=\ [AscII=\%03.3b]\ [Hex=\%02.2B]\ [Pos=%l,%v,%p%%]\ [LINE=%L]
-highlight StatusLine ctermfg=blue ctermbg=white
+"highlight StatusLine ctermfg=blue ctermbg=white
 ":highlight 可以看到所有的顏色
-hi Comment ctermbg=black ctermfg=darkcyan
+"hi Comment ctermbg=black ctermfg=darkcyan
 set hlsearch			"highlight search result
-highlight Search term=reverse ctermbg=4 ctermfg=7
-set background=light
-highlight Normal ctermbg=black ctermfg=white
-highlight Pmenu ctermbg=5 ctermfg=white
-highlight PmenuSel ctermbg=6 ctermfg=white
+"highlight Search term=reverse ctermbg=4 ctermfg=7
+"set background=light
+"set background=dark
+"highlight Normal ctermbg=black ctermfg=white
+"highlight Pmenu ctermbg=5 ctermfg=white
+"highlight PmenuSel ctermbg=6 ctermfg=white
 set ttyfast			" we have a fast terminal
 set lazyredraw			" Do not redaw while running macros (faster)
 set autoindent
@@ -170,7 +174,7 @@ set smarttab
 "set foldmethod=indent		"fold by indent
 "set foldopen=all		"enable fold
 set nofen			"disable fold
-"highlight Folded ctermbg=black ctermfg=darkcyan
+""highlight Folded ctermbg=black ctermfg=darkcyan
 
 " {{{ UTF-8 Big5 Setting
 " 以下四個設下去. vim 編出來都是 utf-8 編碼的.
@@ -509,7 +513,7 @@ Bundle 'vim-scripts/Conque-GDB'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
-"Bundle 'honza/vim-snippets'
+Bundle 'honza/vim-snippets'
 Bundle 'guns/xterm-color-table.vim'
 
 if iCanHazVundle == 0
