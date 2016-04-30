@@ -121,7 +121,7 @@ export LESS_TERMCAP_so=$'\E[0;44;33m' # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'		 # end underline
 export LESS_TERMCAP_us=$'\E[0;33m'   # begin underline
 
-export PATH="$PATH:$HOME/bin/"
+export PATH="$PATH:$HOME/bin"
 
 # make tty1 Eng UI
 if [ "$(tty)" = "/dev/tty1" ]; then
