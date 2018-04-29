@@ -84,6 +84,7 @@ alias ll='ls -lh'
 alias vi='vim'
 alias minicom='minicom --color=on'
 alias fn='find . -name'
+alias gl='git log --oneline --decorate --all --graph --stat'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -124,9 +125,10 @@ export LESS_TERMCAP_us=$'\E[0;33m'   # begin underline
 export PATH="$PATH:$HOME/bin"
 
 # make tty1 Eng UI
-if [ "$(tty)" = "/dev/tty1" ]; then
-    LANG="en_US.UTF-8"
-fi
+#if [ "$(tty)" = "/dev/tty1" ]; then
+#    LANG="en_US.UTF-8"
+#fi
+LANG="en_US.UTF-8"
 
 #. /usr/share/autojump/autojump.sh
 eval "$(fasd --init auto)"
